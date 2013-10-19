@@ -49,4 +49,47 @@ public class GyumolcsTar {
         return almaDb[sorszam]*almaAr + korteDb[sorszam]*korteAr;
     }
     
+    public int getOsszAlmaDb() {
+        int ossz = 0;
+        for (int i=0; i<sorokSzama; i++) {
+            ossz += almaDb[i];
+        }
+        
+        return ossz;
+    }
+
+    public int getOsszAlmaErtek() {
+        int ossz = 0;
+        for (int i=0; i<sorokSzama; i++) {
+            ossz += almaDb[i]*almaAr;
+        }
+        
+        return ossz;
+    }
+
+    public int getOsszKorteDb() {
+        int ossz = 0;
+        for (int i=0; i<sorokSzama; i++) {
+            ossz += korteDb[i];
+        }
+        
+        return ossz;
+    }
+
+    public int getOsszKorteErtek() {
+        int ossz = 0;
+        for (int i=0; i<sorokSzama; i++) {
+            ossz += korteDb[i]*korteAr;
+        }
+        
+        return ossz;
+    }
+
+    public int getOsszDb() {
+        return this.getOsszAlmaDb() + this.getOsszKorteDb();
+    }
+    
+    public int getOsszErtek() {
+        return this.getOsszAlmaErtek() + this.getOsszKorteErtek();
+    }
 }
