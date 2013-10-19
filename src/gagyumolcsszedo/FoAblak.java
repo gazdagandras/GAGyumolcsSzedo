@@ -4,17 +4,24 @@
  */
 package gagyumolcsszedo;
 
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Admin
  */
 public class FoAblak extends javax.swing.JFrame {
 
+    GyumolcsTar gyumolcsok = new GyumolcsTar();
+    DefaultTableModel modelGyumolcsok;
+    
     /**
      * Creates new form FoAblak
      */
     public FoAblak() {
         initComponents();
+        modelGyumolcsok = (DefaultTableModel)tblGyumolcsok.getModel();
+        tblGyumolcsok.setModel(modelGyumolcsok);
     }
 
     /**
@@ -64,6 +71,11 @@ public class FoAblak extends javax.swing.JFrame {
         jLabel3.setText("Körte:");
 
         btnFelvitel.setText("Felvitel");
+        btnFelvitel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFelvitelActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -179,6 +191,24 @@ public class FoAblak extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnFelvitelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFelvitelActionPerformed
+        String nev = tfNev.getText();
+        
+        int almaDb = Integer.parseInt(tfAlmaDb.getText());
+        int korteDb = Integer.parseInt(tfKorteDb.getText());
+        
+        // Tárolás:
+        gyumolcsok.ujSor(nev, almaDb, korteDb);
+        
+        // Megjelenítés:
+        modelGyumolcsok.addRow(new Object[] {nev, almaDb, korteDb});
+        
+        // Alaphelyzetbe állítás:
+        tfNev.setText("");
+        tfAlmaDb.setText("");
+        tfKorteDb.setText("");
+    }//GEN-LAST:event_btnFelvitelActionPerformed
 
     /**
      * @param args the command line arguments
