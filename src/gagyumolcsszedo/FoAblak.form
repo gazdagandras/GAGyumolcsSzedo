@@ -269,6 +269,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Sz&#xe1;mol"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSzamolActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

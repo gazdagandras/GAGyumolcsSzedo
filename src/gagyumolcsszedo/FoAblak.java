@@ -128,6 +128,11 @@ public class FoAblak extends javax.swing.JFrame {
         jLabel5.setText("Körte:");
 
         btnSzamol.setText("Számol");
+        btnSzamol.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSzamolActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -209,6 +214,18 @@ public class FoAblak extends javax.swing.JFrame {
         tfAlmaDb.setText("");
         tfKorteDb.setText("");
     }//GEN-LAST:event_btnFelvitelActionPerformed
+
+    private void btnSzamolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSzamolActionPerformed
+        int almaAr = Integer.parseInt(tfAlmaAr.getText());
+        int korteAr = Integer.parseInt(tfKorteAr.getText());
+        
+        gyumolcsok.setAlmaAr(almaAr);
+        gyumolcsok.setKorteAr(korteAr);
+        
+        for (int i=0; i<gyumolcsok.getSorokSzama(); i++) {
+            modelGyumolcsok.setValueAt(gyumolcsok.getErtek(i), i, 3);
+        }
+    }//GEN-LAST:event_btnSzamolActionPerformed
 
     /**
      * @param args the command line arguments

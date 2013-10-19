@@ -33,5 +33,20 @@ public class GyumolcsTar {
         sorokSzama++;
     }
     
+    public void setAlmaAr(int ar) {
+        almaAr = ar;
+    }
+    
+    public void setKorteAr(int ar) {
+        korteAr = ar;
+    }
+    
+    public int getSorokSzama() {
+        return sorokSzama;
+    }
+    
+    public int getErtek(int sorszam) {
+        return almaDb[sorszam]*almaAr + korteDb[sorszam]*korteAr;
+    }
     
 }
